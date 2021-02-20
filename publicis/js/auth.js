@@ -17,13 +17,15 @@ auth.onAuthStateChanged((user) => {
             //console.log(handle);
           }
         });
-        if (!handle) {
+        if (handle==undefined) {
           document.querySelector(".loader12345").classList.add("disapper");
+          document.querySelector(".container11").classList.remove("hidden");
           // show_screen(index_screen);
           ask_fr_handle(user);
         } else {
           // document.querySelector(".container11").classList.add("hidden");
           // document.querySelector(".container1").classList.remove("hidden");
+
           var request = new XMLHttpRequest();
           once_entered = 1;
           request.open("GET", "/screen/1", true);
@@ -173,7 +175,7 @@ loginAsGuestForm.addEventListener("submit", (e) => {
 
 function display_error() {
   document.querySelector(".loader12345").classList.add("disapper");
-  show_screen(index_screen);
+  // show_screen(index_screen);
   document.querySelector(".disp_err").classList.remove("hidden");
   document.querySelector(".disp_err").classList.add("disapper2");
 }
@@ -233,11 +235,36 @@ function ask_fr_handle(user) {
             target: 16000,
             bookmarks: [],
           });
+          var request = new XMLHttpRequest();
+          once_entered = 1;
+          request.open("GET", "/screen/1", true);
 
+          request.onload = function () {
+            if (this.status >= 200 && this.status < 400) {
+              // Success!
+              var data = this.response;
+              document.querySelector(".loader12345").classList.add("disapper");
+              let div = document.createElement("div");
+              div.innerHTML = data;
+              document.body.appendChild(div);
+             
           document.querySelector(".loader12345").classList.add("disapper");
           document.querySelector(".ask_handle").classList.add("hidden");
 
           dashboard(handle_val);
+              events_init();
+            } else {
+              // We reached our target server, but it returned an error
+            }
+          };
+
+          request.onerror = function () {
+            // There was a connection error of some sort
+          };
+
+          request.send();
+
+
         }
       }
       find_use2r();

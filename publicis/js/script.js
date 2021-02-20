@@ -104,7 +104,15 @@ function dashboard(handle_name) {
   async function getsubmissions() {
     let modified_url = url2 + handle_name;
     const jsondata = await fetch(modified_url);
+
     const jsdata = await jsondata.json();
+    if(jsdata.status=="FAILED")
+    {
+      if(jsdata.comment==`handle: User with handle ${handle_name} not found`)
+      {
+        updateHandle();
+      }
+    }
     user_submissions = jsdata.result;
 
     let unsolved = new Set();
@@ -244,13 +252,7 @@ function dashboard(handle_name) {
                 console.log(arr.problems[i].contestId, arr.problemStatistics[i].solvedCount);
                 result.push(arr.problems[i]);
               }
-            } else {
-              if (arr.problems[i].points <= 1200 && arr.problemStatistics[i].solvedCount>=5000) {
-                no--;
-                console.log(arr.problems[i].contestId, arr.problemStatistics[i].solvedCount);
-                result.push(arr.problems[i]);
-              }
-            }
+            } 
           }
           return result;
         }
@@ -267,23 +269,14 @@ function dashboard(handle_name) {
             }
             if (arr.problems[i].rating !== undefined) {
               if (
-                arr.problems[i].rating <= 1700 &&
+                arr.problems[i].rating <= 1500 &&
                 arr.problems[i].rating > 1200 && arr.problemStatistics[i].solvedCount>=3000
               ) {
                 no--;
                 console.log(arr.problems[i].contestId, arr.problemStatistics[i].solvedCount);
                 result.push(arr.problems[i]);
               }
-            } else {
-              if (
-                arr.problems[i].points <= 1700 &&
-                arr.problems[i].points >= 1200 && arr.problemStatistics[i].solvedCount>=3000
-              ) {
-                no--;
-                console.log(arr.problems[i].contestId, arr.problemStatistics[i].solvedCount);
-                result.push(arr.problems[i]);
-              }
-            }
+            } 
           }
           return result;
         }
@@ -300,23 +293,14 @@ function dashboard(handle_name) {
             }
             if (arr.problems[i].rating !== undefined) {
               if (
-                arr.problems[i].rating <= 2400 &&
-                arr.problems[i].rating > 1900 && arr.problemStatistics[i].solvedCount>=1000
+                arr.problems[i].rating <= 1900 &&
+                arr.problems[i].rating > 1500 && arr.problemStatistics[i].solvedCount>=1000
               ) {
                 no--;
                 console.log(arr.problems[i].contestId, arr.problemStatistics[i].solvedCount);
                 result.push(arr.problems[i]);
               }
-            } else {
-              if (
-                arr.problems[i].points >= 1500 &&
-                arr.problems[i].points <= 1900 && arr.problemStatistics[i].solvedCount>=1000
-              ) {
-                no--;
-                console.log(arr.problems[i].contestId, arr.problemStatistics[i].solvedCount);
-                result.push(arr.problems[i]);
-              }
-            }
+            } 
           }
           return result;
         }
@@ -856,7 +840,7 @@ function dashboard(handle_name) {
 
               if (proper_result.problems[i].rating !== undefined) {
                 if (
-                  proper_result.problems[i].rating <= 1700 &&
+                  proper_result.problems[i].rating <= 1300 &&
                   proper_result.problems[i].rating > 1200 && proper_result.problemStatistics[i].solvedCount>=3000
                 ) {
                   no--;
@@ -865,7 +849,7 @@ function dashboard(handle_name) {
                 }
               } else {
                 if (
-                  proper_result.problems[i].points <= 1700 &&
+                  proper_result.problems[i].points <= 1300 &&
                   proper_result.problems[i].points >= 1200 && proper_result.problemStatistics[i].solvedCount>=3000
                 ) {
                   no--;
@@ -945,8 +929,8 @@ function dashboard(handle_name) {
               }
               if (proper_result.problems[i].rating !== undefined) {
                 if (
-                  proper_result.problems[i].rating <= 1700 &&
-                  proper_result.problems[i].rating > 1200 && proper_result.problemStatistics[i].solvedCount>=3000
+                  proper_result.problems[i].rating <= 1500 &&
+                  proper_result.problems[i].rating > 1300 && proper_result.problemStatistics[i].solvedCount>=3000
                 ) {
                   no--;
                   console.log("HERE");
@@ -954,7 +938,7 @@ function dashboard(handle_name) {
                 }
               } else {
                 if (
-                  proper_result.problems[i].points <= 1700 &&
+                  proper_result.problems[i].points <= 1500 &&
                   proper_result.problems[i].points >= 1200 && proper_result.problemStatistics[i].solvedCount>=3000
                 ) {
                   no--;
@@ -1035,8 +1019,8 @@ function dashboard(handle_name) {
 
               if (proper_result.problems[i].rating !== undefined) {
                 if (
-                  proper_result.problems[i].rating <= 2400 &&
-                  proper_result.problems[i].rating > 1900 && proper_result.problemStatistics[i].solvedCount>=1000 
+                  proper_result.problems[i].rating <= 1700 &&
+                  proper_result.problems[i].rating > 1500 && proper_result.problemStatistics[i].solvedCount>=1000 
                 ) {
                   no--;
                   console.log("hi there");
@@ -1045,7 +1029,7 @@ function dashboard(handle_name) {
               } else {
                 if (
                   proper_result.problems[i].points >= 1500 &&
-                  proper_result.problems[i].points <= 1900 && proper_result.problemStatistics[i].solvedCount>=1000
+                  proper_result.problems[i].points <= 1700 && proper_result.problemStatistics[i].solvedCount>=1000
                 ) {
                   no--;
                   console.log("hi there");
@@ -1121,8 +1105,8 @@ function dashboard(handle_name) {
               }
               if (proper_result.problems[i].rating !== undefined) {
                 if (
-                  proper_result.problems[i].rating <= 2400 &&
-                  proper_result.problems[i].rating > 1900 && proper_result.problemStatistics[i].solvedCount>=1000
+                  proper_result.problems[i].rating <= 3000 &&
+                  proper_result.problems[i].rating > 1700 && proper_result.problemStatistics[i].solvedCount>=1000
                 ) {
                   no--;
                   console.log("hey");
@@ -1130,8 +1114,8 @@ function dashboard(handle_name) {
                 }
               } else {
                 if (
-                  proper_result.problems[i].points >= 1500 &&
-                  proper_result.problems[i].points <= 1900 && proper_result.problemStatistics[i].solvedCount>=1000
+                  proper_result.problems[i].points >= 1700 &&
+                  proper_result.problems[i].points <= 3000 && proper_result.problemStatistics[i].solvedCount>=1000
                 ) {
                   no--;
                   console.log("hey");
@@ -1646,7 +1630,7 @@ function dashboard(handle_name) {
   function show_please(item) {
     item.style.width = "30vw";
     item.style.transition = "1s";
-    item.style.height = "25vh";
+    item.style.height = "20vh";
   }
   function hide_please(item) {
     item.style.width = "24vw";
@@ -2278,5 +2262,39 @@ function dashboard(handle_name) {
       a.appendChild(th);
       div_book.appendChild(a);
     }
+  }
+ function updateHandle()
+  {
+    $('#exampleModal').modal('show');
+    $('.save_new').on('click', ()=>{
+      async function achaa(){
+
+        let new_handle=document.getElementById('new_handle').value;
+        let modified_url =
+          "https://codeforces.com/api/user.info?handles=" + new_handle;
+        const jsondata = await fetch(modified_url);
+        const jsdata = await jsondata.json();
+        if (jsdata.status === "FAILED") {
+          display_alert("check your handle again, We can't find it in codeforces database. And also, if codeforces is down!");
+        }    
+        else{
+          db.collection("handles")
+            .where("email", "==", user.email)
+            .get()
+            .then((snapshot) => {
+              snapshot.docs.forEach((doc) => {
+                const handle_list = doc.data();
+                if (handle_list.email === user.email) {
+                  db.collection("handles").doc(doc.id).update({
+                    handle: new_handle,
+                  });
+                  document.querySelector(".tr-wr").classList.add("hidden");
+                }
+              });
+            });
+        }
+      }
+      achaa()
+    })
   }
 }

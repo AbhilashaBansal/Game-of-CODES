@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GOC | Annual Report</title>
+
+  <meta name="twitter:site" content="@gameofcodes">
+  <meta name="twitter:creator" content="@gameofcodes">
+  <meta property="og:type" content="website">
+  <meta property="og:image:alt" content="Try Todoist">
+  <meta property="og:site_name" content="GameOfCodes">
+  <meta name="robots" content="index,follow">
+  <meta name="googlebot" content="index,follow">
+  <meta name="description"
+    content="GameOfCodes tracked my progress and helped me improve my codeforces ratings over the past year!">
+  <meta property="og:title" content="My Codeforces Year in Review 2020">
+  <meta property="og:description"
+    content="GameOfCodes tracked my progress and helped me improve my codeforces ratings over the past year!">
+    <meta
+    property="og:image"
+    content="https://i.ibb.co/PmFxXDX/logo-dark.png"
+    />
+  <meta property="og:image:height" content="628">
+  <meta property="og:image:height" content="628">
+
+  <link rel="stylesheet" href="sass/style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
+    integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA=="
+    crossorigin="anonymous" />
+
+  <link rel="shortcut icon" href="../resources/logo/logo_dark.png" />
+</head>
+
+<body>
+  <div class="loader hidden">
+    <div class="lds-roller"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+  </div>
+  <form class="header" id="handle_submit">
+    <div class="animated go_up animate__animated">
+      
+      <h3>Hey Geek, Wanna See how you did in</h3>
+      <h1>2020</h1>
+      <h3>Input your handle and see the bends!</h3>
+    </div>
+    <div class="animated go_down animate__animated">
+      <div class="flipper-input">
+        <input class="flipper-input__input" id="handle" placeholder="Codeforces handle" />
+        <label class="flipper-input__label" for="handle">Codeforces handle</label>
+      </div>
+      <button class="angled-gradient-button" id="submit">Let's See</button>
+    </div>
+  </form>
+  <footer>
+    <h4>
+      Wanna make 2021 even more special? See:
+      <h1>
+        <a href="https://gameofcodes.herokuapp.com" target="_blank">
+          Game Of CODES
+        </a>
+      </h1>
+    </h4>
+    <p>
+      ਅਸੀਂ ਬਿਨਾਂ ਕੋਸ਼ਿਸ਼ ਕੀਤੇ ਨਹੀਂ ਜਾਵਾਂਗੇ</p>
+  </footer>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="app.js"></script>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init({
+      duration: 1000,
+    });
+  </script>
+  <script>
+    if(window.location.href[7]=='g')
+    {
+       window.location.href='https://gameofcodes.herokuapp.com/annual_report/index.html';
+    }
+ </script>
+</body>
+
+</html>

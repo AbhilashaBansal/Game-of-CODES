@@ -1,9 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Nova+Square&family=Philosopher&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Audiowide&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+/* body{
+	zoom: 0.9; 
+    -moz-transform: scale(0.9); 
+    -moz-transform-origin: 0 0;
+} */
 body {
 	font-family: 'Nova Square', sans-serif;
-	font-size: 1rem;
+	font-size: 0.8rem;
 	color: white;
 	height: 100vh;
 	overflow-x: hidden;
@@ -16,6 +21,17 @@ body::-webkit-scrollbar {
 body::-webkit-scrollbar-thumb {
 	background-color: #666;
 	border-radius: 50px;
+}
+
+button{
+	font-size:0.9rem!important;
+}
+.card_about{
+	display: flex;justify-content: center;align-items: center;
+}
+.card_about img{
+	border-radius: 50%;
+	width:150px;
 }
 .table_row {
 	display: grid;
@@ -96,14 +112,14 @@ a {
 }
 
 .container900 {
-	background: url('../resources/backgrounds/avengers.jpg') no-repeat
+	background: url('../resources/backgrounds/iron-man.jpg') no-repeat
 		center/cover;
 	background-attachment: fixed;
 	height: 100vh;
 }
 
 .container7 {
-	background: url('../resources/backgrounds/image1.jpg') no-repeat center/cover;
+	background: url('../resources/backgrounds/iron-man.jpg') no-repeat center/cover;
 	background-attachment: fixed;
 	height: 100vh;
 }
@@ -218,14 +234,14 @@ a {
 	color: rgb(0, 0, 0);
 }
 .container4 {
-	background: url('../resources/backgrounds/jonathan-borba-zfPOelmDc-M-unsplash.jpg')
+	background: url('../resources/backgrounds/iron-man.jpg')
 		no-repeat center center/cover;
 	background-attachment: fixed;
 	height: 100vh;
 }
 
 .container411 {
-	background: url('../resources/backgrounds/jonathan-borba-zfPOelmDc-M-unsplash.jpg')
+	background: url('../resources/backgrounds/iron-man.jpg')
 		no-repeat center center/cover;
 	background-attachment: fixed;
 	height: 100vh;
@@ -240,7 +256,7 @@ a {
 	background-color: rgba(0, 0, 0, 0.6);
 }
 .container111 {
-	background: url('../resources/backgrounds/car_black.jpg') no-repeat center
+	background: url('../resources/backgrounds/iron-man.jpg') no-repeat center
 		center/cover;
 	background-attachment: fixed;
 	height: 540vh;
@@ -323,7 +339,7 @@ a {
 }
 .logo img {
 	width: auto;
-	height: 60px;
+	height: 50px;
 	padding-right: 3rem;
 }
 .search img {
@@ -376,7 +392,7 @@ table tr {
 	padding: 1rem;
 }
 .daily-mix {
-	width: 450px;
+	width: 400px;
 	height: 300px;
 	background: rgba(20, 20, 20, 0.47);
 	border-radius: 35px;
@@ -491,7 +507,12 @@ table tr {
 	display: flex;
 	padding: 0 0.4rem;
 }
-
+.handle{
+	display: flex;
+	justify-content:center;
+	flex-direction:column;
+	align-items:center;
+}
 .handle1,
 .handle2,
 .handle_1,
@@ -628,15 +649,20 @@ table tr {
 	pointer-events: none;
 }
 .updateCodeblast{
+	position: absolute;
 	z-index:100;
+	bottom:0;
+	right:0;
 }
 .container2222 .container768{
   position: absolute!important;
   top:0!important;
 }
 .res_table{
-	position: absolute;
-	top:50%;
+	max-width: 600px;
+    position: absolute;
+    right: 0;
+    top: 300px;
 }
 .container768 {
 	position: relative;
@@ -820,9 +846,9 @@ a:hover {
 	border: 1px solid white;
 }
 .container1forprofile {
-	background: url('../resources/backgrounds/hulk.jpg') no-repeat center/cover;
+	background: url('../resources/backgrounds/iron-man.jpg') no-repeat center/cover;
 	background-attachment: fixed;
-	height: 540vh;
+	height: 600vh;
 }
 .container2forprofile {
 	position: absolute;
@@ -830,7 +856,7 @@ a:hover {
 	left: 0;
 	right: 0;
 	bottom: 0;
-	height: 540vh;
+	height: 600vh;
 	background-color: rgba(0, 0, 0, 0.7);
 }
 .ask_perm {
@@ -972,19 +998,35 @@ a:hover {
 	width: 100%;
 	text-align: center;
 	font-family: 'Audiowide';
-}
-.section33 h1 {
-	font-size: 2rem;
-	padding: 2rem;
-}
-.section33 p {
-	text-align: justify;
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	flex-direction: column;
+	grid-gap:2rem;
 }
-.section33 a {
+.section33 h1 {
+	font-size: 2rem;
+	/* padding: 2rem; */
+}
+.section33 p {
+	text-align: justify;
+	display: flex;
+	font-size:1rem;
+	justify-content: center;
+	/* align-items: center; */
+	flex-direction: column;
+}
+.card_about{
+	text-align:left;
+	display: flex;
+	justify-content: flex-start;
+	align-items: flex-start;
+	font-family: 'Poppins';
+	width: 1000px;
+    grid-gap: 2rem;
+	/* flex-direction: column; */
+}
+/* .section33 a {
 	font-family: 'Audiowide';
 	color: #ffffff;
 	background: rgba(56, 136, 19, 0.582);
@@ -1084,7 +1126,7 @@ a span:nth-child(4) {
 	100% {
 		transform: translateY(-100%);
 	}
-}
+} */
 .side_menu {
 	display: flex;
 	flex-direction: column;
@@ -1388,7 +1430,7 @@ body {
 	bottom: 0;
 }
 .container824 {
-	background: url('resources/backgrounds/ironman-art.jpg') no-repeat center
+	background: url('resources/') no-repeat center
 		center/cover;
 	background-attachment: fixed;
 	height: 150vh;
